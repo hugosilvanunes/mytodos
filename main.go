@@ -3,9 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/gin-gonic/gin"
 	"github.com/hugosilvanunes/mytodos/config"
-	"github.com/hugosilvanunes/mytodos/user"
+	"github.com/hugosilvanunes/mytodos/server"
 )
 
 func main() {
@@ -14,11 +13,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	r := gin.Default()
-
-	user.Router(r, *cfg)
-
-	if err := r.Run(cfg.ENV.Port); err != nil {
+	if err := server.Run(*cfg); err != nil {
 		log.Fatal(err)
 	}
 }

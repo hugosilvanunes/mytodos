@@ -3,8 +3,10 @@ package config
 import "github.com/kelseyhightower/envconfig"
 
 type Env struct {
-	Port        string `envconfig:"PORT" default:":8080"`
-	DatabaseURL string `envconfig:"DATABASE_URL"`
+	Environment  string `envconfig:"ENV" default:"dev"`
+	Port         string `envconfig:"PORT" default:":8080"`
+	DatabaseURL  string `envconfig:"DSN"`
+	JWTSecretKey string `envconfig:"JWT_SECRET_KEY"`
 }
 
 func NewEnv() (*Env, error) {

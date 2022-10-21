@@ -10,3 +10,10 @@ type RegisterInput struct {
 	Password string `json:"password" binding:"required"`
 	Name     string `json:"name" binding:"required"`
 }
+
+type User struct {
+	ID       int64  `json:"id"`
+	Email    string `json:"email"`
+	Password string `json:"password"`
+	Name     string `json:"name"`
+}
